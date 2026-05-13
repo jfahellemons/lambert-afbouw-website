@@ -1,0 +1,112 @@
+'use client'
+
+import { Button } from '@/components/ui/button'
+import { ArrowRight, CheckCircle } from 'lucide-react'
+
+interface HeroProps {
+  onContactClick: () => void
+}
+
+export function Hero({ onContactClick }: HeroProps) {
+  const scrollToServices = () => {
+    const element = document.getElementById('services')
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <section className="relative min-h-screen bg-navy pt-16 lg:pt-20">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      </div>
+
+      <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col items-center justify-center px-4 py-16 sm:px-6 lg:flex-row lg:gap-16 lg:px-8 lg:py-24">
+        {/* Content */}
+        <div className="flex-1 text-center lg:text-left">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full bg-lime/10 px-4 py-2 text-sm font-medium text-lime">
+            <CheckCircle className="h-4 w-4" />
+            4.9/5 op Werkspot
+          </div>
+
+          <h1 className="mb-6 text-balance text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+            Vakmanschap voor{' '}
+            <span className="text-lime">Uw Renovatie</span>
+          </h1>
+
+          <p className="mx-auto mb-8 max-w-2xl text-pretty text-lg leading-relaxed text-gray-300 lg:mx-0 lg:text-xl">
+            Lambert Afbouw is uw betrouwbare partner voor alle renovatie- en 
+            afbouwprojecten. Van keukenrenovatie tot complete bedrijfsverbouwing 
+            - wij leveren kwaliteit op maat.
+          </p>
+
+          <div className="flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+            <Button
+              onClick={onContactClick}
+              size="lg"
+              className="w-full bg-lime px-8 py-6 text-base font-semibold text-navy hover:bg-lime-dark sm:w-auto"
+            >
+              Gratis Offerte Aanvragen
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button
+              onClick={scrollToServices}
+              variant="outline"
+              size="lg"
+              className="w-full border-white/30 bg-transparent px-8 py-6 text-base font-semibold text-white hover:bg-white/10 sm:w-auto"
+            >
+              Bekijk Onze Diensten
+            </Button>
+          </div>
+
+          {/* Trust Badges */}
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-lime" />
+              <span className="text-sm text-gray-300">Gratis Offerte</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-lime" />
+              <span className="text-sm text-gray-300">15+ Jaar Ervaring</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CheckCircle className="h-5 w-5 text-lime" />
+              <span className="text-sm text-gray-300">100% Garantie</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero Image Placeholder */}
+        <div className="mt-12 flex-1 lg:mt-0">
+          <div className="relative aspect-square max-w-lg overflow-hidden rounded-2xl bg-navy-light lg:aspect-[4/3]">
+            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-lime/20 to-navy-light">
+              <div className="text-center">
+                <div className="mb-4 text-6xl font-bold text-lime">LA</div>
+                <div className="text-sm text-gray-400">
+                  Afbeelding komt hier
+                </div>
+              </div>
+            </div>
+            {/* Accent corner */}
+            <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-tl-2xl bg-lime" />
+          </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+        <button
+          onClick={scrollToServices}
+          className="flex flex-col items-center gap-2 text-gray-400 transition-colors hover:text-lime"
+          aria-label="Scroll naar diensten"
+        >
+          <span className="text-xs uppercase tracking-wider">Ontdek meer</span>
+          <div className="h-8 w-5 rounded-full border-2 border-current p-1">
+            <div className="h-2 w-1 animate-bounce rounded-full bg-current" />
+          </div>
+        </button>
+      </div>
+    </section>
+  )
+}

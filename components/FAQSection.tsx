@@ -1,0 +1,95 @@
+'use client'
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
+
+const faqs = [
+  {
+    id: '1',
+    question: 'Welke soorten projecten voeren jullie uit?',
+    answer:
+      'Wij verzorgen een breed scala aan renovatie- en afbouwprojecten, waaronder keuken- en badkamerrenovaties, complete interieurverbouwingen, vloerinstallaties, wand- en plafondwerk, kantoorinrichtingen, en commerciële ruimtes. Zowel voor particulieren als zakelijke klanten.',
+  },
+  {
+    id: '2',
+    question: 'Hoe lang duurt een gemiddelde renovatie?',
+    answer:
+      'De doorlooptijd hangt af van de omvang van het project. Een badkamerrenovatie duurt gemiddeld 2-3 weken, een complete keukenrenovatie 3-4 weken. Bij grotere projecten maken we vooraf een gedetailleerde planning die we met u bespreken.',
+  },
+  {
+    id: '3',
+    question: 'Bieden jullie ontwerpadvies aan?',
+    answer:
+      'Ja, wij bieden gratis ontwerpadvies als onderdeel van onze dienstverlening. Onze experts denken graag met u mee over materialen, indelingen en stijlen die passen bij uw wensen en budget.',
+  },
+  {
+    id: '4',
+    question: 'In welke regio zijn jullie werkzaam?',
+    answer:
+      'Wij zijn actief in heel Nederland, met focus op de Randstad. Voor grotere projecten komen we ook daarbuiten. Neem gerust contact op om te bespreken of wij bij u in de buurt kunnen werken.',
+  },
+  {
+    id: '5',
+    question: 'Hoe kan ik een gratis offerte aanvragen?',
+    answer:
+      'U kunt eenvoudig een gratis offerte aanvragen via ons contactformulier op deze pagina, of bel direct met ons team. Wij komen graag vrijblijvend bij u langs om uw wensen te bespreken en een passende offerte te maken.',
+  },
+]
+
+interface FAQSectionProps {
+  onContactClick: () => void
+}
+
+export function FAQSection({ onContactClick }: FAQSectionProps) {
+  return (
+    <section id="faq" className="bg-navy py-16 lg:py-24">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
+            Veelgestelde <span className="text-lime">Vragen</span>
+          </h2>
+          <p className="mx-auto max-w-2xl text-pretty text-gray-300">
+            Hier vindt u antwoorden op de meest gestelde vragen. Staat uw vraag 
+            er niet bij? Neem gerust contact met ons op.
+          </p>
+        </div>
+
+        {/* FAQ Accordion */}
+        <Accordion type="single" collapsible defaultValue="1" className="space-y-4">
+          {faqs.map((faq) => (
+            <AccordionItem
+              key={faq.id}
+              value={faq.id}
+              className="rounded-xl border-0 bg-navy-light px-6 data-[state=open]:bg-navy-light"
+            >
+              <AccordionTrigger className="py-5 text-left text-base font-medium text-white hover:no-underline hover:text-lime [&[data-state=open]>svg]:text-lime">
+                {faq.question}
+              </AccordionTrigger>
+              <AccordionContent className="pb-5 text-gray-300">
+                {faq.answer}
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+
+        {/* CTA */}
+        <div className="mt-12 text-center">
+          <p className="mb-4 text-gray-300">
+            Nog vragen? Wij helpen u graag verder.
+          </p>
+          <button
+            onClick={onContactClick}
+            className="inline-flex items-center gap-2 rounded-lg bg-lime px-6 py-3 font-medium text-navy transition-colors hover:bg-lime-dark"
+          >
+            Stel uw vraag
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
