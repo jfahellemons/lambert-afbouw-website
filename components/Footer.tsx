@@ -26,7 +26,7 @@ export function Footer({ onContactClick }: FooterProps) {
             <span className="text-2xl font-bold text-white">
               Lambert<span className="text-lime">Afbouw</span>
             </span>
-            <p className="mt-4 text-sm leading-relaxed text-gray-400">
+            <p className="mt-4 text-sm leading-relaxed text-white/60">
               Uw betrouwbare partner voor alle renovatie- en afbouwprojecten. 
               Met meer dan 15 jaar ervaring leveren wij kwaliteit op maat.
             </p>
@@ -41,7 +41,7 @@ export function Footer({ onContactClick }: FooterProps) {
               <li>
                 <button
                   onClick={() => scrollToSection('services')}
-                  className="text-sm text-gray-400 transition-colors hover:text-lime"
+                  className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   Onze Diensten
                 </button>
@@ -49,7 +49,7 @@ export function Footer({ onContactClick }: FooterProps) {
               <li>
                 <button
                   onClick={() => scrollToSection('testimonials')}
-                  className="text-sm text-gray-400 transition-colors hover:text-lime"
+                  className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   Klantreviews
                 </button>
@@ -57,7 +57,7 @@ export function Footer({ onContactClick }: FooterProps) {
               <li>
                 <button
                   onClick={() => scrollToSection('faq')}
-                  className="text-sm text-gray-400 transition-colors hover:text-lime"
+                  className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   Veelgestelde Vragen
                 </button>
@@ -65,7 +65,7 @@ export function Footer({ onContactClick }: FooterProps) {
               <li>
                 <button
                   onClick={onContactClick}
-                  className="text-sm text-gray-400 transition-colors hover:text-lime"
+                  className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   Contact
                 </button>
@@ -80,16 +80,16 @@ export function Footer({ onContactClick }: FooterProps) {
             </h3>
             <ul className="space-y-3">
               <li>
-                <span className="text-sm text-gray-400">Keukenrenovatie</span>
+                <span className="text-sm text-white/60">Keukenrenovatie</span>
               </li>
               <li>
-                <span className="text-sm text-gray-400">Badkamerrenovatie</span>
+                <span className="text-sm text-white/60">Badkamerrenovatie</span>
               </li>
               <li>
-                <span className="text-sm text-gray-400">Kantoorinrichting</span>
+                <span className="text-sm text-white/60">Kantoorinrichting</span>
               </li>
               <li>
-                <span className="text-sm text-gray-400">Vloerinstallatie</span>
+                <span className="text-sm text-white/60">Vloerinstallatie</span>
               </li>
               <li>
                 <button
@@ -110,7 +110,7 @@ export function Footer({ onContactClick }: FooterProps) {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-lime" />
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-white/60">
                   Industrieweg 123
                   <br />
                   1234 AB Amsterdam
@@ -120,7 +120,7 @@ export function Footer({ onContactClick }: FooterProps) {
                 <Phone className="h-4 w-4 shrink-0 text-lime" />
                 <a
                   href="tel:+31201234567"
-                  className="text-sm text-gray-400 transition-colors hover:text-lime"
+                  className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   +31 20 123 4567
                 </a>
@@ -129,14 +129,14 @@ export function Footer({ onContactClick }: FooterProps) {
                 <Mail className="h-4 w-4 shrink-0 text-lime" />
                 <a
                   href="mailto:info@lambertafbouw.nl"
-                  className="text-sm text-gray-400 transition-colors hover:text-lime"
+                  className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   info@lambertafbouw.nl
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-lime" />
-                <span className="text-sm text-gray-400">
+                <span className="text-sm text-white/60">
                   Ma - Vr: 08:00 - 18:00
                   <br />
                   Za: Op afspraak
@@ -151,14 +151,14 @@ export function Footer({ onContactClick }: FooterProps) {
       <div className="border-t border-white/10">
         <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-white/60">
               &copy; {currentYear} Lambert Afbouw. Alle rechten voorbehouden.
             </p>
             <div className="flex items-center gap-6">
-              <button className="text-sm text-gray-400 transition-colors hover:text-lime">
+              <button className="text-sm text-white/60 transition-colors hover:text-lime">
                 Privacybeleid
               </button>
-              <button className="text-sm text-gray-400 transition-colors hover:text-lime">
+              <button className="text-sm text-white/60 transition-colors hover:text-lime">
                 Algemene Voorwaarden
               </button>
             </div>

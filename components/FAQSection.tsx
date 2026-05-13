@@ -53,7 +53,7 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
           <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
             Veelgestelde <span className="text-lime">Vragen</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-pretty text-gray-300">
+          <p className="mx-auto max-w-2xl text-pretty text-white/70">
             Hier vindt u antwoorden op de meest gestelde vragen. Staat uw vraag 
             er niet bij? Neem gerust contact met ons op.
           </p>
@@ -70,7 +70,7 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
               <AccordionTrigger className="py-5 text-left text-base font-medium text-white hover:no-underline hover:text-lime [&[data-state=open]>svg]:text-lime">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="pb-5 text-gray-300">
+              <AccordionContent className="pb-5 text-white/70">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
@@ -79,7 +79,7 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
 
         {/* CTA */}
         <div className="mt-12 text-center">
-          <p className="mb-4 text-gray-300">
+          <p className="mb-4 text-white/70">
             Nog vragen? Wij helpen u graag verder.
           </p>
           <button

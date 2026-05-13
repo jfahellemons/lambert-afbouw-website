@@ -35,7 +35,7 @@ export function Hero({ onContactClick }: HeroProps) {
             <span className="text-lime">Uw Renovatie</span>
           </h1>
 
-          <p className="mx-auto mb-8 max-w-2xl text-pretty text-lg leading-relaxed text-gray-300 lg:mx-0 lg:text-xl">
+          <p className="mx-auto mb-8 max-w-2xl text-pretty text-lg leading-relaxed text-white/70 lg:mx-0 lg:text-xl">
             Lambert Afbouw is uw betrouwbare partner voor alle renovatie- en 
             afbouwprojecten. Van keukenrenovatie tot complete bedrijfsverbouwing 
             - wij leveren kwaliteit op maat.
@@ -64,15 +64,15 @@ export function Hero({ onContactClick }: HeroProps) {
           <div className="mt-12 flex flex-wrap items-center justify-center gap-6 lg:justify-start">
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-lime" />
-              <span className="text-sm text-gray-300">Gratis Offerte</span>
+              <span className="text-sm text-white/70">Gratis Offerte</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-lime" />
-              <span className="text-sm text-gray-300">15+ Jaar Ervaring</span>
+              <span className="text-sm text-white/70">15+ Jaar Ervaring</span>
             </div>
             <div className="flex items-center gap-2">
               <CheckCircle className="h-5 w-5 text-lime" />
-              <span className="text-sm text-gray-300">100% Garantie</span>
+              <span className="text-sm text-white/70">100% Garantie</span>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ export function Hero({ onContactClick }: HeroProps) {
             <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-lime/20 to-navy-light">
               <div className="text-center">
                 <div className="mb-4 text-6xl font-bold text-lime">LA</div>
-                <div className="text-sm text-gray-400">
+                <div className="text-sm text-white/50">
                   Afbeelding komt hier
                 </div>
               </div>
@@ -98,7 +98,7 @@ export function Hero({ onContactClick }: HeroProps) {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <button
           onClick={scrollToServices}
-          className="flex flex-col items-center gap-2 text-gray-400 transition-colors hover:text-lime"
+          className="flex flex-col items-center gap-2 text-white/50 transition-colors hover:text-lime"
           aria-label="Scroll naar diensten"
         >
           <span className="text-xs uppercase tracking-wider">Ontdek meer</span>
