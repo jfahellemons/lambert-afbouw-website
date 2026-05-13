@@ -1,7 +1,6 @@
 'use client'
 
 import { services } from '@/lib/validations'
-import { GradientMesh } from '@/components/GradientMesh'
 import {
   Home,
   Building2,
@@ -95,17 +94,14 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export function ServicesSection({ onServiceClick }: ServicesSectionProps) {
   return (
-    <section id="services" className="relative overflow-hidden bg-navy py-16 lg:py-24">
-      {/* Animated Gradient Mesh Background */}
-      <GradientMesh />
-      
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="services" className="bg-secondary py-16 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center lg:mb-16">
-          <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
-            Onze <span className="text-lime">Diensten</span>
+          <h2 className="mb-4 text-3xl font-bold text-navy lg:text-4xl">
+            Onze <span className="text-lime-dark">Diensten</span>
           </h2>
-          <p className="mx-auto max-w-2xl text-pretty text-white/70">
+          <p className="mx-auto max-w-2xl text-pretty text-muted-foreground">
             Van kleine renovaties tot complete verbouwingen - wij bieden een 
             breed scala aan professionele diensten voor zowel particuliere als 
             zakelijke klanten.
@@ -119,14 +115,14 @@ export function ServicesSection({ onServiceClick }: ServicesSectionProps) {
               <div key={key}>
                 {/* Category Header */}
                 <div className="mb-6 flex items-center gap-3">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-lime text-navy shadow-lg shadow-lime/25">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-navy text-white">
                     {categoryIcons[key]}
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white lg:text-2xl">
+                    <h3 className="text-xl font-semibold text-navy lg:text-2xl">
                       {category.title}
                     </h3>
-                    <div className="mt-1 h-1 w-16 rounded-full bg-gradient-to-r from-lime to-lime-dark" />
+                    <div className="mt-1 h-1 w-16 rounded-full bg-lime" />
                   </div>
                 </div>
 
@@ -188,12 +184,12 @@ export function ServicesSection({ onServiceClick }: ServicesSectionProps) {
 
         {/* CTA */}
         <div className="mt-12 text-center lg:mt-16">
-          <p className="mb-4 text-white/70">
+          <p className="mb-4 text-muted-foreground">
             Niet gevonden wat u zoekt?
           </p>
           <button
             onClick={() => onServiceClick('')}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-lime to-lime-dark px-8 py-4 font-semibold text-navy shadow-lg shadow-lime/25 transition-all duration-300 hover:shadow-xl hover:shadow-lime/30 hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-lg bg-navy px-6 py-3 font-medium text-white transition-colors hover:bg-navy-light"
           >
             Neem contact met ons op
           </button>
