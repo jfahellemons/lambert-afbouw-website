@@ -85,24 +85,41 @@ export function ServicesSection({ onServiceClick }: ServicesSectionProps) {
                 </div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  {category.items.map((service) => (
+                <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                  {category.items.map((service, index) => (
                     <button
                       key={service}
                       onClick={() => onServiceClick(service)}
-                      className="group flex items-start gap-4 rounded-xl bg-white p-5 text-left shadow-sm transition-all duration-200 hover:shadow-md hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-lime focus:ring-offset-2"
+                      className="group relative overflow-hidden rounded-2xl bg-white p-6 text-left shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-2 focus:outline-none focus:ring-2 focus:ring-lime focus:ring-offset-2"
+                      style={{ animationDelay: `${index * 50}ms` }}
                     >
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-navy transition-colors group-hover:bg-lime group-hover:text-navy">
-                        {serviceIcons[service] || <Hammer className="h-6 w-6" />}
+                      {/* Gradient border effect on hover */}
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-lime/0 via-lime/0 to-lime/0 transition-all duration-300 group-hover:from-lime/20 group-hover:via-transparent group-hover:to-navy/10" />
+                      
+                      {/* Top accent line */}
+                      <div className="absolute left-0 top-0 h-1 w-0 bg-gradient-to-r from-lime to-lime-dark transition-all duration-300 group-hover:w-full" />
+                      
+                      <div className="relative flex flex-col gap-4">
+                        {/* Icon container */}
+                        <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-navy/5 text-navy transition-all duration-300 group-hover:bg-lime group-hover:text-navy group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-lime/25">
+                          {serviceIcons[service] || <Hammer className="h-6 w-6" />}
+                        </div>
+                        
+                        <div>
+                          <h4 className="font-semibold text-navy transition-colors duration-200 group-hover:text-lime-dark">
+                            {service}
+                          </h4>
+                          <p className="mt-2 flex items-center gap-1 text-sm text-muted-foreground">
+                            <span className="inline-block h-0.5 w-0 bg-lime transition-all duration-300 group-hover:w-4" />
+                            <span className="transition-all duration-300 group-hover:translate-x-1">
+                              Bekijk details
+                            </span>
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h4 className="font-medium text-navy group-hover:text-lime-dark">
-                          {service}
-                        </h4>
-                        <p className="mt-1 text-sm text-muted-foreground">
-                          Klik voor meer info
-                        </p>
-                      </div>
+                      
+                      {/* Corner decoration */}
+                      <div className="absolute -bottom-4 -right-4 h-16 w-16 rounded-full bg-lime/0 transition-all duration-300 group-hover:bg-lime/10" />
                     </button>
                   ))}
                 </div>
