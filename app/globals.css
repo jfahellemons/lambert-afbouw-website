@@ -43,6 +43,10 @@
   --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
   
+  /* Blob animation keyframes */
+  --animate-blob: blob 10s ease-in-out infinite;
+  --animate-blob-reverse: blob-reverse 12s ease-in-out infinite;
+  
   /* Brand colors for direct usage - use hex values directly */
   --color-navy: #0f172a;
   --color-navy-light: #1e293b;
@@ -84,5 +88,36 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Gradient mesh blob animations */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(30px, 10px) scale(1.05);
+  }
+}
+
+@keyframes blob-reverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-30px, 20px) scale(1.05);
+  }
+  50% {
+    transform: translate(20px, -20px) scale(1.1);
+  }
+  75% {
+    transform: translate(-10px, -30px) scale(0.95);
   }
 }

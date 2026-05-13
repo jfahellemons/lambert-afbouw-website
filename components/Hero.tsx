@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { GradientMesh } from '@/components/GradientMesh'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 
 interface HeroProps {
@@ -17,10 +18,8 @@ export function Hero({ onContactClick }: HeroProps) {
 
   return (
     <section className="relative min-h-screen bg-navy pt-16 lg:pt-20">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff12_1px,transparent_1px),linear-gradient(to_bottom,#ffffff12_1px,transparent_1px)] bg-[size:4rem_4rem]" />
-      </div>
+      {/* Animated Gradient Mesh Background */}
+      <GradientMesh />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-4rem)] max-w-7xl flex-col items-center justify-center px-4 py-16 sm:px-6 lg:flex-row lg:gap-16 lg:px-8 lg:py-24">
         {/* Content */}
