@@ -76,17 +76,16 @@ export function Hero({ onContactClick }: HeroProps) {
           </div>
         </div>
 
-        {/* Hero Image Placeholder */}
+        {/* Hero Image */}
         <div className="mt-12 flex-1 lg:mt-0">
           <div className="relative aspect-square max-w-lg overflow-hidden rounded-2xl bg-navy-light lg:aspect-[4/3]">
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-lime/20 to-navy-light">
-              <div className="text-center">
-                <div className="mb-4 text-6xl font-bold text-lime">LA</div>
-                <div className="text-sm text-white/50">
-                  Afbeelding komt hier
-                </div>
-              </div>
-            </div>
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/E10EJPJZ-D99n3SqkA15BW258KbjclV2Hg1AIiN.avif"
+              alt="Modern gerenoveerd interieur met houten vloer en natuurlijk licht"
+              className="h-full w-full object-cover"
+            />
+            {/* Overlay gradient for depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
             {/* Accent corner */}
             <div className="absolute -right-4 -bottom-4 h-24 w-24 rounded-tl-2xl bg-lime" />
           </div>
