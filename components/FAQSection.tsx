@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { useReveal } from '@/hooks/use-reveal'
 
 const faqs = [
   {
@@ -45,11 +46,17 @@ interface FAQSectionProps {
 }
 
 export function FAQSection({ onContactClick }: FAQSectionProps) {
+  const { ref: headerRef, isVisible: headerVisible } = useReveal()
+  const { ref: contentRef, isVisible: contentVisible } = useReveal(0.1)
+
   return (
     <section id="faq" className="bg-navy py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-12 text-center">
+        <div 
+          ref={headerRef as any}
+          className={`mb-12 text-center reveal-init ${headerVisible ? 'reveal-visible' : ''}`}
+        >
           <h2 className="mb-4 text-3xl font-bold text-white lg:text-4xl">
             Veelgestelde <span className="text-lime">Vragen</span>
           </h2>
@@ -60,12 +67,19 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
         </div>
 
         {/* FAQ Accordion */}
-        <Accordion type="single" collapsible defaultValue="1" className="space-y-4">
-          {faqs.map((faq) => (
+        <Accordion 
+          ref={contentRef as any}
+          type="single" 
+          collapsible 
+          defaultValue="1" 
+          className={`space-y-4 reveal-init ${contentVisible ? 'reveal-visible' : ''}`}
+        >
+          {faqs.map((faq, index) => (
             <AccordionItem
               key={faq.id}
               value={faq.id}
-              className="rounded-xl border-0 bg-navy-light px-6 data-[state=open]:bg-navy-light"
+              className="rounded-xl border-0 bg-navy-light px-6 transition-all duration-300 hover:bg-navy-light/80"
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <AccordionTrigger className="py-5 text-left text-base font-medium text-white hover:no-underline hover:text-lime [&[data-state=open]>svg]:text-lime">
                 {faq.question}
@@ -78,13 +92,16 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
         </Accordion>
 
         {/* CTA */}
-        <div className="mt-12 text-center">
+        <div 
+          className={`mt-12 text-center reveal-init ${contentVisible ? 'reveal-visible' : ''}`}
+          style={{ transitionDelay: '500ms' }}
+        >
           <p className="mb-4 text-white/70">
             Nog vragen? Wij helpen u graag verder.
           </p>
           <button
             onClick={onContactClick}
-            className="inline-flex items-center gap-2 rounded-lg bg-lime px-6 py-3 font-medium text-navy transition-colors hover:bg-lime-dark"
+            className="inline-flex items-center gap-2 rounded-lg bg-lime px-8 py-3 font-bold text-navy transition-all hover:bg-lime-dark hover:scale-105 active:scale-95 shadow-lg shadow-lime/20"
           >
             Stel uw vraag
           </button>
@@ -93,3 +110,4 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
     </section>
   )
 }
+

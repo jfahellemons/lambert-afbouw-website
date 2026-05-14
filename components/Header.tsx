@@ -43,23 +43,22 @@ export function Header({ onContactClick }: HeaderProps) {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled || isMobileMenuOpen
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || isMobileMenuOpen
           ? 'bg-white/95 backdrop-blur-sm shadow-md'
           : 'bg-transparent'
-      }`}
+        }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <Link 
+            <Link
               href="/"
-              className={`text-xl font-bold lg:text-2xl transition-colors duration-300 ${
-                isScrolled || isMobileMenuOpen ? 'text-navy' : 'text-white'
-              }`}
+              className={`flex items-center gap-2 text-xl font-bold lg:text-2xl transition-colors duration-300 ${isScrolled || isMobileMenuOpen ? 'text-navy' : 'text-white'
+                }`}
             >
-              Lambert<span className="text-lime">Afbouw</span>
+              <img src="/helm.png" alt="Lambert Afbouw Logo" className="h-8 w-8 lg:h-10 lg:w-10 object-contain" />
+              <span>Lambert<span className="text-lime"> Afbouw</span></span>
             </Link>
           </div>
 
@@ -70,9 +69,8 @@ export function Header({ onContactClick }: HeaderProps) {
                 key={link.name}
                 href={link.href}
                 onClick={(e) => link.isScroll && scrollToSection(e, link.id!)}
-                className={`text-sm font-medium transition-colors hover:text-lime-dark ${
-                  isScrolled || isMobileMenuOpen ? 'text-navy' : 'text-white'
-                } ${pathname === link.href ? 'text-lime-dark' : ''}`}
+                className={`text-sm font-medium transition-colors hover:text-lime-dark ${isScrolled || isMobileMenuOpen ? 'text-navy' : 'text-white'
+                  } ${pathname === link.href ? 'text-lime-dark' : ''}`}
               >
                 {link.name}
               </Link>
@@ -89,9 +87,8 @@ export function Header({ onContactClick }: HeaderProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`md:hidden transition-colors ${
-              isScrolled || isMobileMenuOpen ? 'text-navy' : 'text-white'
-            }`}
+            className={`md:hidden transition-colors ${isScrolled || isMobileMenuOpen ? 'text-navy' : 'text-white'
+              }`}
             aria-label={isMobileMenuOpen ? 'Sluit menu' : 'Open menu'}
           >
             {isMobileMenuOpen ? (

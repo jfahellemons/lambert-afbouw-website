@@ -1,6 +1,7 @@
 'use client'
 
 import { Star, Quote } from 'lucide-react'
+import { useReveal } from '@/hooks/use-reveal'
 
 const testimonials = [
   {
@@ -45,11 +46,17 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export function TestimonialsSection() {
+  const { ref: headerRef, isVisible: headerVisible } = useReveal()
+  const { ref: gridRef, isVisible: gridVisible } = useReveal(0.1)
+
   return (
     <section id="testimonials" className="bg-white py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-12 text-center lg:mb-16">
+        <div 
+          ref={headerRef as any}
+          className={`mb-12 text-center lg:mb-16 reveal-init ${headerVisible ? 'reveal-visible' : ''}`}
+        >
           <h2 className="mb-4 text-3xl font-bold text-navy lg:text-4xl">
             Wat Onze Klanten <span className="text-lime-dark">Zeggen</span>
           </h2>
@@ -59,7 +66,7 @@ export function TestimonialsSection() {
           </p>
           
           {/* Werkspot Rating Badge */}
-          <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-secondary px-5 py-2">
+          <div className="mt-6 inline-flex items-center gap-3 rounded-full bg-secondary px-5 py-2 transition-all hover:scale-105">
             <div className="flex items-center gap-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-5 w-5 fill-lime text-lime" />
@@ -71,14 +78,18 @@ export function TestimonialsSection() {
         </div>
 
         {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((testimonial) => (
+        <div 
+          ref={gridRef as any}
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {testimonials.map((testimonial, index) => (
             <article
               key={testimonial.id}
-              className="relative flex flex-col rounded-2xl bg-secondary p-6 lg:p-8"
+              className={`relative flex flex-col rounded-2xl bg-secondary p-6 lg:p-8 shadow-soft transition-all duration-500 hover:shadow-xl hover:-translate-y-2 reveal-init ${gridVisible ? 'reveal-visible' : ''}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Quote Icon */}
-              <div className="absolute -top-3 left-6 flex h-8 w-8 items-center justify-center rounded-full bg-lime">
+              <div className="absolute -top-3 left-6 flex h-8 w-8 items-center justify-center rounded-full bg-lime shadow-lg">
                 <Quote className="h-4 w-4 text-navy" />
               </div>
 
@@ -106,3 +117,4 @@ export function TestimonialsSection() {
     </section>
   )
 }
+

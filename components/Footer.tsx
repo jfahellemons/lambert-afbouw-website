@@ -29,11 +29,12 @@ export function Footer({ onContactClick }: FooterProps) {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="text-2xl font-bold text-white">
-              Lambert<span className="text-lime">Afbouw</span>
+            <Link href="/" className="flex items-center gap-2 text-2xl font-bold text-white">
+              <img src="/helm.png" alt="Lambert Afbouw Logo" className="h-8 w-8 object-contain" />
+              <span>Lambert<span className="text-lime"> Afbouw</span></span>
             </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
-              Uw betrouwbare partner voor alle renovatie- en afbouwprojecten. 
+              Uw betrouwbare partner voor alle renovatie- en afbouwprojecten.
               Met meer dan 15 jaar ervaring leveren wij kwaliteit op maat.
             </p>
           </div>
@@ -131,7 +132,7 @@ export function Footer({ onContactClick }: FooterProps) {
                 <span className="text-sm text-white/60">
                   Industrieweg 123
                   <br />
-                  1234 AB Amsterdam
+                  1234 AB Breda
                 </span>
               </li>
               <li className="flex items-center gap-3">
