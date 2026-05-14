@@ -90,7 +90,7 @@ export function ProjectDetailModal({
               }}
               className="flex-1 bg-lime h-12 text-navy font-bold hover:bg-lime-dark shadow-lg shadow-lime/20"
             >
-              Vraag Offerte voor {project.service}
+              Vraag offerte aan
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button
