@@ -106,7 +106,7 @@ export function ContactModal({
 
   return (
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto border-0 p-0 sm:max-w-lg">
+      <DialogContent className="max-h-[90vh] overflow-y-auto border-0 p-0 sm:max-w-lg [&>button]:text-white">
         {/* Header with gradient background */}
         <div className="relative overflow-hidden bg-navy px-6 pb-6 pt-8">
           {/* Decorative elements */}

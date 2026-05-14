@@ -1,6 +1,8 @@
 'use client'
 
 import { MapPin, Phone, Mail, Clock } from 'lucide-react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 interface FooterProps {
   onContactClick: () => void
@@ -8,11 +10,15 @@ interface FooterProps {
 
 export function Footer({ onContactClick }: FooterProps) {
   const currentYear = new Date().getFullYear()
+  const pathname = usePathname()
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    if (pathname === '/') {
+      e.preventDefault()
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
     }
   }
 
@@ -23,9 +29,9 @@ export function Footer({ onContactClick }: FooterProps) {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <span className="text-2xl font-bold text-white">
+            <Link href="/" className="text-2xl font-bold text-white">
               Lambert<span className="text-lime">Afbouw</span>
-            </span>
+            </Link>
             <p className="mt-4 text-sm leading-relaxed text-white/60">
               Uw betrouwbare partner voor alle renovatie- en afbouwprojecten. 
               Met meer dan 15 jaar ervaring leveren wij kwaliteit op maat.
@@ -39,33 +45,44 @@ export function Footer({ onContactClick }: FooterProps) {
             </h3>
             <ul className="space-y-3">
               <li>
-                <button
-                  onClick={() => scrollToSection('services')}
+                <Link
+                  href="/projects"
+                  className="text-sm text-white/60 transition-colors hover:text-lime"
+                >
+                  Onze Projecten
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/#services"
+                  onClick={(e) => scrollToSection(e, 'services')}
                   className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   Onze Diensten
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('testimonials')}
+                <Link
+                  href="/#testimonials"
+                  onClick={(e) => scrollToSection(e, 'testimonials')}
                   className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   Klantreviews
-                </button>
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('faq')}
+                <Link
+                  href="/#faq"
+                  onClick={(e) => scrollToSection(e, 'faq')}
                   className="text-sm text-white/60 transition-colors hover:text-lime"
                 >
                   Veelgestelde Vragen
-                </button>
+                </Link>
               </li>
               <li>
                 <button
                   onClick={onContactClick}
-                  className="text-sm text-white/60 transition-colors hover:text-lime"
+                  className="text-sm text-white/60 transition-colors hover:text-lime text-left"
                 >
                   Contact
                 </button>
@@ -92,12 +109,13 @@ export function Footer({ onContactClick }: FooterProps) {
                 <span className="text-sm text-white/60">Vloerinstallatie</span>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('services')}
+                <Link
+                  href="/#services"
+                  onClick={(e) => scrollToSection(e, 'services')}
                   className="text-sm font-medium text-lime transition-colors hover:text-lime-dark"
                 >
                   Alle diensten bekijken
-                </button>
+                </Link>
               </li>
             </ul>
           </div>
@@ -168,3 +186,4 @@ export function Footer({ onContactClick }: FooterProps) {
     </footer>
   )
 }
+
