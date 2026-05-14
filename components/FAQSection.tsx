@@ -31,7 +31,7 @@ const faqs = [
     id: '4',
     question: 'In welke regio zijn jullie werkzaam?',
     answer:
-      'Wij zijn actief in heel Nederland, met focus op de Randstad. Voor grotere projecten komen we ook daarbuiten. Neem gerust contact op om te bespreken of wij bij u in de buurt kunnen werken.',
+      'Wij zijn actief in heel Nederland, met focus op de regio Breda. Voor grotere projecten komen we ook daarbuiten. Neem gerust contact op om te bespreken of wij bij u in de buurt kunnen werken.',
   },
   {
     id: '5',
@@ -53,7 +53,7 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
     <section id="faq" className="bg-navy py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div 
+        <div
           ref={headerRef as any}
           className={`mb-12 text-center reveal-init ${headerVisible ? 'reveal-visible' : ''}`}
         >
@@ -61,17 +61,17 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
             Veelgestelde <span className="text-lime">Vragen</span>
           </h2>
           <p className="mx-auto max-w-2xl text-pretty text-white/70">
-            Hier vindt u antwoorden op de meest gestelde vragen. Staat uw vraag 
+            Hier vindt u antwoorden op de meest gestelde vragen. Staat uw vraag
             er niet bij? Neem gerust contact met ons op.
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <Accordion 
+        <Accordion
           ref={contentRef as any}
-          type="single" 
-          collapsible 
-          defaultValue="1" 
+          type="single"
+          collapsible
+          defaultValue="1"
           className={`space-y-4 reveal-init ${contentVisible ? 'reveal-visible' : ''}`}
         >
           {faqs.map((faq, index) => (
@@ -92,7 +92,7 @@ export function FAQSection({ onContactClick }: FAQSectionProps) {
         </Accordion>
 
         {/* CTA */}
-        <div 
+        <div
           className={`mt-12 text-center reveal-init ${contentVisible ? 'reveal-visible' : ''}`}
           style={{ transitionDelay: '500ms' }}
         >
