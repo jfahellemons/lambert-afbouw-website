@@ -40,7 +40,9 @@ export function Header({ onContactClick }: HeaderProps) {
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <span className="text-xl font-bold text-navy lg:text-2xl">
+            <span className={`text-xl font-bold transition-colors duration-300 lg:text-2xl ${
+              isScrolled ? 'text-navy' : 'text-white'
+            }`}>
               Lambert<span className="text-lime">Afbouw</span>
             </span>
           </div>
@@ -49,19 +51,25 @@ export function Header({ onContactClick }: HeaderProps) {
           <nav className="hidden items-center gap-8 md:flex">
             <button
               onClick={() => scrollToSection('services')}
-              className="text-sm font-medium text-navy transition-colors hover:text-lime-dark"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? 'text-navy hover:text-lime-dark' : 'text-white/90 hover:text-lime'
+              }`}
             >
               Diensten
             </button>
             <button
               onClick={() => scrollToSection('testimonials')}
-              className="text-sm font-medium text-navy transition-colors hover:text-lime-dark"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? 'text-navy hover:text-lime-dark' : 'text-white/90 hover:text-lime'
+              }`}
             >
               Reviews
             </button>
             <button
               onClick={() => scrollToSection('faq')}
-              className="text-sm font-medium text-navy transition-colors hover:text-lime-dark"
+              className={`text-sm font-medium transition-colors ${
+                isScrolled ? 'text-navy hover:text-lime-dark' : 'text-white/90 hover:text-lime'
+              }`}
             >
               FAQ
             </button>
@@ -77,7 +85,7 @@ export function Header({ onContactClick }: HeaderProps) {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-navy md:hidden"
+            className={`transition-colors md:hidden ${isScrolled ? 'text-navy' : 'text-white'}`}
             aria-label={isMobileMenuOpen ? 'Sluit menu' : 'Open menu'}
           >
             {isMobileMenuOpen ? (
